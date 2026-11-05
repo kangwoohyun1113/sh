@@ -207,7 +207,34 @@ input, textarea {
 .section-tag {
     color: #C5FA6C !important;
 }
+/* 흰색 선택창 안의 선택된 글씨 */
+[data-testid="stSelectbox"] div[data-baseweb="select"] {
+    background-color: #F0F2F6 !important;
+}
 
+[data-testid="stSelectbox"] div[data-baseweb="select"] * {
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+}
+
+/* 선택창의 펼침 메뉴 글씨 */
+[data-baseweb="popover"] *,
+[data-baseweb="menu"] *,
+[role="option"] {
+    color: #111111 !important;
+}
+
+/* 운동 추천 접기/펼치기 제목 */
+[data-testid="stExpander"] summary {
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+}
+
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary span {
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
+}
 </style>
 <div class="fit-hero">
   <div class="fit-kicker">YOUR PERSONAL TRAINING COMPANION</div>
