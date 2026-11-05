@@ -61,179 +61,77 @@ hr {border-color:#2b3c55 !important;}
     line-height:1.65; margin:12px 0 20px;
 }
 footer,#MainMenu {visibility:hidden;}
-/* =================================
-   전체 글씨 색상 흰색으로 통일
-================================= */
-
-/* 기본 텍스트 */
+/* 기본 어두운 배경의 글씨 */
 .stApp,
 .stApp p,
-.stApp span,
 .stApp label,
-.stApp div,
-.stApp li,
-.stApp small,
-.stMarkdown,
-.stMarkdown p,
-.stMarkdown span,
-.stMarkdown li {
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp li {
     color: #FFFFFF !important;
 }
 
-/* 모든 제목 */
-h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF !important;
-}
-
-/* 입력 항목 이름 */
-[data-testid="stNumberInput"] label,
-[data-testid="stSelectbox"] label,
-[data-testid="stRadio"] label,
-[data-testid="stCheckbox"] label {
-    color: #FFFFFF !important;
-}
-
-/* 입력창 안의 숫자와 글씨 */
-input, textarea {
+/* 숫자 입력창: 안쪽 남색 배경 + 흰색 글씨 */
+[data-testid="stNumberInput"] input {
+    background-color: #15243A !important;
     color: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
 }
 
-/* 선택 메뉴 글씨 */
-[data-baseweb="select"] * {
-    color: #FFFFFF !important;
-}
-
-/* 펼치기 메뉴 */
-[data-testid="stExpander"] *,
-[data-testid="stExpander"] summary {
-    color: #FFFFFF !important;
-}
-
-/* 인바디 수치 */
-[data-testid="stMetricLabel"],
-[data-testid="stMetricValue"],
-[data-testid="stMetricDelta"] {
-    color: #FFFFFF !important;
-}
-
-/* 안내 메시지 */
-[data-testid="stAlert"] *,
-.stAlert p {
-    color: #FFFFFF !important;
-}
-
-/* 체크박스와 라디오 버튼 설명 */
-.stCheckbox span,
-.stRadio span {
-    color: #FFFFFF !important;
-}
-
-/* 글씨 강조 부분은 연두색 유지 */
-.fit-kicker,
-.section-tag {
-    color: #C5FA6C !important;
-}
-/* =================================
-   전체 글씨 색상 흰색으로 통일
-================================= */
-
-/* 기본 텍스트 */
-.stApp,
-.stApp p,
-.stApp span,
-.stApp label,
-.stApp div,
-.stApp li,
-.stApp small,
-.stMarkdown,
-.stMarkdown p,
-.stMarkdown span,
-.stMarkdown li {
-    color: #FFFFFF !important;
-}
-
-/* 모든 제목 */
-h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF !important;
-}
-
-/* 입력 항목 이름 */
-[data-testid="stNumberInput"] label,
-[data-testid="stSelectbox"] label,
-[data-testid="stRadio"] label,
-[data-testid="stCheckbox"] label {
-    color: #FFFFFF !important;
-}
-
-/* 입력창 안의 숫자와 글씨 */
-input, textarea {
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-}
-
-/* 선택 메뉴 글씨 */
-[data-baseweb="select"] * {
-    color: #FFFFFF !important;
-}
-
-/* 펼치기 메뉴 */
-[data-testid="stExpander"] *,
-[data-testid="stExpander"] summary {
-    color: #FFFFFF !important;
-}
-
-/* 인바디 수치 */
-[data-testid="stMetricLabel"],
-[data-testid="stMetricValue"],
-[data-testid="stMetricDelta"] {
-    color: #FFFFFF !important;
-}
-
-/* 안내 메시지 */
-[data-testid="stAlert"] *,
-.stAlert p {
-    color: #FFFFFF !important;
-}
-
-/* 체크박스와 라디오 버튼 설명 */
-.stCheckbox span,
-.stRadio span {
-    color: #FFFFFF !important;
-}
-
-/* 글씨 강조 부분은 연두색 유지 */
-.fit-kicker,
-.section-tag {
-    color: #C5FA6C !important;
-}
-/* 흰색 선택창 안의 선택된 글씨 */
-[data-testid="stSelectbox"] div[data-baseweb="select"] {
+/* 선택창: 밝은 배경 + 검은색 글씨 */
+[data-testid="stSelectbox"] [data-baseweb="select"] {
     background-color: #F0F2F6 !important;
 }
 
-[data-testid="stSelectbox"] div[data-baseweb="select"] * {
+[data-testid="stSelectbox"] [data-baseweb="select"] * {
     color: #111111 !important;
     -webkit-text-fill-color: #111111 !important;
 }
 
-/* 선택창의 펼침 메뉴 글씨 */
+/* 선택 메뉴: 밝은 배경 + 검은색 글씨 */
+[data-baseweb="popover"],
+[data-baseweb="menu"] {
+    background-color: #FFFFFF !important;
+}
+
 [data-baseweb="popover"] *,
 [data-baseweb="menu"] *,
 [role="option"] {
     color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
 }
 
-/* 운동 추천 접기/펼치기 제목 */
+/* 운동 추천 제목: 흰색 배경 + 검은색 글씨 */
 [data-testid="stExpander"] summary {
+    background-color: #F0F2F6 !important;
+    color: #111111 !important;
+}
+
+[data-testid="stExpander"] summary * {
     color: #111111 !important;
     -webkit-text-fill-color: #111111 !important;
 }
 
-[data-testid="stExpander"] summary p,
-[data-testid="stExpander"] summary span {
+/* 운동 설명: 남색 배경 + 흰색 글씨 */
+[data-testid="stExpander"] details > div {
+    background-color: #15243A !important;
+    color: #FFFFFF !important;
+}
+
+[data-testid="stExpander"] details > div * {
+    color: #FFFFFF !important;
+}
+
+/* 라디오 버튼과 체크박스 */
+[data-testid="stRadio"] label,
+[data-testid="stCheckbox"] label {
+    color: #FFFFFF !important;
+}
+
+/* 숫자 입력창의 +, - 버튼: 밝은 배경 + 검은색 */
+[data-testid="stNumberInput"] button {
     color: #111111 !important;
-    -webkit-text-fill-color: #111111 !important;
 }
 </style>
 <div class="fit-hero">
