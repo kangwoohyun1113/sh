@@ -1,18 +1,83 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="인바디 기반 맞춤 운동 강도 안내",
+    page_title="FITMATE | 맞춤 운동 플래너",
     page_icon="💪",
     layout="wide"
 )
 
-st.title("💪 인바디 기반 맞춤 운동 강도 안내")
-st.write(
-    "인바디 정보와 운동 경험, 운동 장소를 함께 고려해 운동 목표와 시작 운동량을 추천합니다. "
-    "아래 결과는 참고용이며, 인바디 수치만으로 운동 능력이나 안전한 강도를 확정할 수는 없습니다."
+# 운동 앱 느낌의 다크 네이비 + 라임 포인트 디자인
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap');
+:root {--lime:#b8f34a; --panel:#142238; --line:#2b3c55;}
+.stApp {
+    background: radial-gradient(ellipse at 12% 0%, rgba(184,243,74,.10), transparent 30%),
+                linear-gradient(180deg, #0b1220 0%, #0d1728 100%);
+    color:#f4f7fb; font-family:'Pretendard',sans-serif;
+}
+.block-container {max-width:1180px; padding-top:2rem; padding-bottom:4rem;}
+h1,h2,h3,p,label,.stMarkdown {font-family:'Pretendard',sans-serif;}
+h1 {font-weight:900 !important; letter-spacing:-1.5px;}
+h2 {font-weight:800 !important; letter-spacing:-.6px;}
+[data-testid="stMetric"] {
+    background:linear-gradient(145deg,#18263b,#111c2e);
+    border:1px solid #2b3c55; border-radius:18px; padding:18px 20px;
+}
+[data-testid="stMetricLabel"] {color:#aab8ca !important;}
+[data-testid="stMetricValue"] {color:#c7ff68 !important; font-weight:850;}
+div[data-testid="stExpander"] {background:#121f33; border:1px solid #2b3c55; border-radius:14px;}
+.stTextInput input,.stNumberInput input,.stSelectbox div[data-baseweb="select"],.stTextArea textarea {
+    background-color:#142238 !important; color:#f4f7fb !important;
+    border-color:#344963 !important; border-radius:11px !important;
+}
+.stRadio label,.stCheckbox label {color:#e5edf7 !important;}
+.stButton button {background:#b8f34a; color:#14200b; border:0; border-radius:12px; font-weight:800;}
+.stButton button:hover {background:#d0ff7b; color:#14200b;}
+hr {border-color:#2b3c55 !important;}
+[data-testid="stAlert"] {border-radius:14px;}
+.fit-hero {
+    padding:30px 32px; margin:0 0 26px; border-radius:24px; overflow:hidden;
+    background:linear-gradient(115deg,#1b2d42 0%,#142238 58%,#243a27 100%);
+    border:1px solid #3b5364; position:relative;
+}
+.fit-hero:after {
+    content:"FIT"; position:absolute; right:24px; bottom:-42px;
+    font-size:150px; line-height:1; font-weight:900;
+    color:rgba(184,243,74,.08); letter-spacing:-12px;
+}
+.fit-kicker {color:#c5fa6c; font-size:12px; font-weight:900; letter-spacing:2px; margin-bottom:10px;}
+.fit-title {color:white; font-size:clamp(28px,4vw,42px); line-height:1.15; font-weight:900; letter-spacing:-1.5px; margin-bottom:10px;}
+.fit-desc {color:#bdcadd; font-size:15px; max-width:680px; line-height:1.7;}
+.fit-pill {
+    display:inline-block; margin-top:17px; padding:7px 12px; border-radius:999px;
+    background:rgba(184,243,74,.13); color:#d2ff8c;
+    border:1px solid rgba(184,243,74,.35); font-size:12px; font-weight:800;
+}
+.section-tag {color:#c5fa6c; font-size:11px; font-weight:900; letter-spacing:1.8px; margin-bottom:3px;}
+.fit-note {
+    padding:14px 17px; background:#142238; border:1px solid #2d425e;
+    border-left:4px solid #b8f34a; border-radius:12px; color:#c5d1e0;
+    line-height:1.65; margin:12px 0 20px;
+}
+footer,#MainMenu {visibility:hidden;}
+</style>
+<div class="fit-hero">
+  <div class="fit-kicker">YOUR PERSONAL TRAINING COMPANION</div>
+  <div class="fit-title">FITMATE<br>나에게 맞는 운동을 시작하다.</div>
+  <div class="fit-desc">인바디 데이터와 운동 경험, 운동 환경을 바탕으로<br>나에게 맞는 운동 방향과 루틴을 찾아보세요.</div>
+  <span class="fit-pill">BODY ANALYSIS · CUSTOM WORKOUT · PROGRESS</span>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown(
+    '<div class="fit-note">💡 인바디 정보와 운동 경험, 운동 장소를 함께 고려해 운동 목표와 시작 운동량을 추천합니다. '
+    '결과는 참고용이며 인바디 수치만으로 운동 능력이나 안전한 강도를 확정할 수 없습니다.</div>',
+    unsafe_allow_html=True
 )
 
-st.subheader("1. 인바디 정보 입력")
+st.markdown('<div class="section-tag">01 / BODY DATA</div>', unsafe_allow_html=True)
+st.subheader("인바디 정보 입력")
 c1, c2, c3 = st.columns(3)
 with c1:
     height = st.number_input("키 (cm)", min_value=100.0, max_value=230.0, value=170.0, step=0.5)
@@ -26,7 +91,8 @@ with c3:
 
 st.caption("입력값은 본인의 인바디 결과지에 적힌 수치를 사용하세요. 성별 기준은 참고용이며 개인차가 있습니다.")
 
-st.subheader("2. 운동 환경과 경험")
+st.markdown('<div class="section-tag">02 / TRAINING PROFILE</div>', unsafe_allow_html=True)
+st.subheader("운동 환경과 경험")
 c4, c5, c6 = st.columns(3)
 with c4:
     place = st.radio("주로 운동할 장소", ["헬스장", "집"], horizontal=True)
@@ -63,7 +129,8 @@ elif bmi < 25:
 else:
     bmi_status = "높은 BMI 범위"
 
-st.subheader("3. 인바디 기반 몸 상태 참고 분석")
+st.markdown('<div class="section-tag">03 / BODY INSIGHT</div>', unsafe_allow_html=True)
+st.subheader("인바디 기반 몸 상태 분석")
 m1, m2, m3 = st.columns(3)
 m1.metric("BMI", f"{bmi:.1f}", bmi_status)
 m2.metric("골격근량 비율", f"{muscle_ratio:.1f}%", "골격근량 ÷ 체중")
@@ -89,7 +156,8 @@ if muscle_ratio < 35:
 else:
     st.write("- 체중 대비 골격근량 비율을 참고해 근력 향상 여부를 추적할 수 있습니다. 이 비율만으로 근육량이 충분한지 판단할 수는 없습니다.")
 
-st.subheader("4. 추천 운동")
+st.markdown('<div class="section-tag">04 / YOUR WORKOUT</div>', unsafe_allow_html=True)
+st.subheader("맞춤 운동 추천")
 level = "초급" if experience.startswith("초급") else ("중급" if experience.startswith("중급") else "고급")
 level_settings = {
     "초급": {"sets": 2, "reps": "8~12회", "rest": 75, "effort": "편안한 강도 (마지막에도 3~4회 더 할 수 있는 정도)"},
@@ -217,7 +285,8 @@ for i, (name, focus, instruction) in enumerate(selected, start=1):
         if name in ["벤치프레스", "덤벨 루마니안 데드리프트", "파이크 푸시업", "철봉 매달리기"]:
             st.write("**추가 주의:** 처음에는 낮은 난이도 또는 보조를 이용하고, 통증이 있으면 즉시 중단하세요.")
 
-st.subheader("5. 인바디가 추천에 반영된 방식")
+st.markdown('<div class="section-tag">05 / RECOMMENDATION LOGIC</div>', unsafe_allow_html=True)
+st.subheader("추천 결과 분석")
 st.write(
     f"- **경험 수준({level})**은 기본 세트 수와 반복 범위, 휴식 시간을 정했습니다.\n"
     f"- **체지방률({body_fat:.1f}%)과 목표({goal})**는 체지방 관리가 필요한 경우 저충격 유산소 운동을 추가하는 데 반영했습니다.\n"
