@@ -61,29 +61,78 @@ hr {border-color:#2b3c55 !important;}
     line-height:1.65; margin:12px 0 20px;
 }
 footer,#MainMenu {visibility:hidden;}
-/* 인바디 입력 항목 이름 - 흰색 */
+/* =================================
+   전체 글씨 색상 흰색으로 통일
+================================= */
+
+/* 기본 텍스트 */
+.stApp,
+.stApp p,
+.stApp span,
+.stApp label,
+.stApp div,
+.stApp li,
+.stApp small,
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown span,
+.stMarkdown li {
+    color: #FFFFFF !important;
+}
+
+/* 모든 제목 */
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
+}
+
+/* 입력 항목 이름 */
 [data-testid="stNumberInput"] label,
-[data-testid="stNumberInput"] label p,
-[data-testid="stNumberInput"] label span {
-    color: #FFFFFF !important;
-    font-weight: 700 !important;
-}
-
-/* 숫자 입력창 내부 글씨 - 흰색 */
-[data-testid="stNumberInput"] input {
-    color: #FFFFFF !important;
-    background-color: #18263B !important;
-    border: 1px solid #52647D !important;
-}
-
-/* 입력창의 위아래 버튼 */
-[data-testid="stNumberInput"] button {
+[data-testid="stSelectbox"] label,
+[data-testid="stRadio"] label,
+[data-testid="stCheckbox"] label {
     color: #FFFFFF !important;
 }
 
-/* 인바디 입력 영역의 안내 글씨 */
-[data-testid="stNumberInput"] small {
-    color: #E0E8F2 !important;
+/* 입력창 안의 숫자와 글씨 */
+input, textarea {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* 선택 메뉴 글씨 */
+[data-baseweb="select"] * {
+    color: #FFFFFF !important;
+}
+
+/* 펼치기 메뉴 */
+[data-testid="stExpander"] *,
+[data-testid="stExpander"] summary {
+    color: #FFFFFF !important;
+}
+
+/* 인바디 수치 */
+[data-testid="stMetricLabel"],
+[data-testid="stMetricValue"],
+[data-testid="stMetricDelta"] {
+    color: #FFFFFF !important;
+}
+
+/* 안내 메시지 */
+[data-testid="stAlert"] *,
+.stAlert p {
+    color: #FFFFFF !important;
+}
+
+/* 체크박스와 라디오 버튼 설명 */
+.stCheckbox span,
+.stRadio span {
+    color: #FFFFFF !important;
+}
+
+/* 글씨 강조 부분은 연두색 유지 */
+.fit-kicker,
+.section-tag {
+    color: #C5FA6C !important;
 }
 </style>
 <div class="fit-hero">
