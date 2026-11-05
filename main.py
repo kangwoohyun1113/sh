@@ -61,6 +61,30 @@ hr {border-color:#2b3c55 !important;}
     line-height:1.65; margin:12px 0 20px;
 }
 footer,#MainMenu {visibility:hidden;}
+/* 인바디 입력 항목 이름 - 흰색 */
+[data-testid="stNumberInput"] label,
+[data-testid="stNumberInput"] label p,
+[data-testid="stNumberInput"] label span {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+/* 숫자 입력창 내부 글씨 - 흰색 */
+[data-testid="stNumberInput"] input {
+    color: #FFFFFF !important;
+    background-color: #18263B !important;
+    border: 1px solid #52647D !important;
+}
+
+/* 입력창의 위아래 버튼 */
+[data-testid="stNumberInput"] button {
+    color: #FFFFFF !important;
+}
+
+/* 인바디 입력 영역의 안내 글씨 */
+[data-testid="stNumberInput"] small {
+    color: #E0E8F2 !important;
+}
 </style>
 <div class="fit-hero">
   <div class="fit-kicker">YOUR PERSONAL TRAINING COMPANION</div>
